@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 
 
+app.get('/', function(req,res){
+  res.send("Please provide a valid date string in URL")
+})
 app.get('/:timestamp', function(req, res){
   var date;
   var timestamp = req.params.timestamp;
