@@ -15,20 +15,17 @@ app.get('/:timestamp', function(req, res){
       res.status(500)
       res.send({
         unix: null,
-
         natural: null
       })
-      return
+      return;
     }
-
-
     var dateObj = {};
     dateObj.unix = date.getTime()
-    var nat = `${date.getUTCMonth()} ${date.getDate()}, ${date.getFullYear()}`
     dateObj.natural = date.toLocaleString('en-us', { month: 'long', day:'numeric', year:'numeric' });
-    res.status(200)
+    // Return JSON Obj with proper headings
+    res.status(200);
     res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify(dateObj))
+    res.send(JSON.stringify(dateObj));
 
 
 
